@@ -1,0 +1,98 @@
+<mxfile host="65bd71144e">
+    <diagram id="Q1EGiR5eS5rYaSdG5sXk" name="Fluxo B - Control ID c/ IA e Voz">
+        <mxGraphModel dx="792" dy="445" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Dispositivo Control iD&lt;br&gt;(Portaria)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="50" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Webhook Listener Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="50" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Baixa Imagem/Snapshot" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="150" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="AI Processing Service&lt;br&gt;(Motor de IA)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="250" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Decisão da IA:&lt;br&gt;Exigir Voz (TTS)?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="415" y="370" width="110" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Ativa SIP Gateway&lt;br&gt;/ Serviço TTS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="520" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Control &amp; Actuator Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="520" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Webhook/REST" style="endArrow=classic;html=1;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="320" y="80" as="sourcePoint"/>
+                        <mxPoint x="370" y="80" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3" target="4">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="470" y="110" as="sourcePoint"/>
+                        <mxPoint x="470" y="150" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="4" target="5">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="470" y="210" as="sourcePoint"/>
+                        <mxPoint x="470" y="250" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="5" target="6">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="470" y="310" as="sourcePoint"/>
+                        <mxPoint x="470" y="370" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="Sim" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="6" target="7">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="410" as="sourcePoint"/>
+                        <mxPoint x="320" y="520" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="320" y="410"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="Não / Voz Encerrada" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="6" target="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="530" y="410" as="sourcePoint"/>
+                        <mxPoint x="570" y="520" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="570" y="410"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="SIP INVITE + RTP (Áudio da IA)" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=1;" edge="1" parent="1" source="7" target="2">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="320" y="520" as="sourcePoint"/>
+                        <mxPoint x="210" y="110" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="320" y="470"/>
+                            <mxPoint x="120" y="470"/>
+                            <mxPoint x="120" y="80"/>
+                            <mxPoint x="210" y="80"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="Comando REST/HTTP&lt;br&gt;(Abrir/Negar)" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="8" target="2">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="500" y="550" as="sourcePoint"/>
+                        <mxPoint x="270" y="80" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="470" y="550"/>
+                            <mxPoint x="470" y="650"/>
+                            <mxPoint x="80" y="650"/>
+                            <mxPoint x="80" y="80"/>
+                            <mxPoint x="150" y="80"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

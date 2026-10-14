@@ -1,0 +1,22 @@
+{
+  "name": "back-end-portaria-ia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test tests/integrations/control-id/*.test.js",
+    "test:control-id:live": "node scripts/test-control-id-live.cjs",
+    "test:websocket": "node test-websocket-relay.cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "eslint": "^9.39.1",
+    "express.js": "^1.0.0",
+    "uwebsockets.js": "^19.0.0",
+    "ws": "^8.18.3"
+  }
+}
